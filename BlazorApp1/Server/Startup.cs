@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace BlazorApp1.Server
 {
@@ -45,6 +46,12 @@ namespace BlazorApp1.Server
             app.UseStaticFiles();
 
             app.UseRouting();
+            var forwardedHeadersOptions = new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedProto
+            };
+            app.UseForwardedHeaders(forwardedHeadersOptions);
+            app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints =>
             {
