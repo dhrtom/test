@@ -21,4 +21,4 @@ services:
       LETSENCRYPT_HOST: konijn.it
       LETSENCRYPT_EMAIL: foo@konijn.it
       ASPNETCORE_HTTPS_PORT: 433
-      ASPNETCORE_URLS="https://+443;http://+80"
+      ASPNETCORE_URLS:"https://+443;http://+80"
