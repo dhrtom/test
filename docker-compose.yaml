@@ -18,3 +18,39 @@ services:
     - "5000:5000"
     environment:
       ASPNETCORE_URLS: http://+:5000
+
+        dockertest:
+    image: dhrtom/dockertest
+    ports:
+    - "5000:5000"
+    environment:
+      VIRTUAL_HOST: konijn.it
+      LETSENCRYPT_HOST: konijn.it
+      LETSENCRYPT_EMAIL: foo@konijn.it
+      ASPNETCORE_URLS: http://+:5000
+
+  letsencrypt:
+    image: linuxserver/letsencrypt
+    container_name: letsencrypt
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - URL=yourdomain.url
+      - SUBDOMAINS=www,
+      - VALIDATION=http
+      - DNSPLUGIN=cloudflare #optional
+      - DUCKDNSTOKEN=<token> #optional
+      - EMAIL=<e-mail> #optional
+      - DHLEVEL=2048 #optional
+      - ONLY_SUBDOMAINS=false #optional
+      - EXTRA_DOMAINS=<extradomains> #optional
+      - STAGING=false #optional
+    volumes:
+      - </path/to/appdata/config>:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
