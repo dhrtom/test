@@ -15,10 +15,6 @@ services:
   dockertest:
     image: dhrtom/dockertest
     ports:
-    - "80:80"
+    - "5000:5000"
     environment:
-      VIRTUAL_HOST: konijn.it
-      LETSENCRYPT_HOST: konijn.it
-      LETSENCRYPT_EMAIL: foo@konijn.it
-      ASPNETCORE_HTTPS_PORT: 433
-      ASPNETCORE_URLS:"https://+443;http://+80"
+      ASPNETCORE_URLS: http://+:5000
