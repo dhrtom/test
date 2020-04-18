@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.13.1
+    container_name: nginx-proxy
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - conf:/etc/nginx/conf.d
+    - vhost:/etc/nginx/vhost.d
+    - html:/usr/share/nginx/html
+    - certs:/etc/nginx/certs
+    labels:
+    - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
+  
+  #postgresdb96:
+  #  image: postgres:9.6
+  #  ports:
+  #    - "5432:5432"
+  #  environment:
+  #    POSTGRES_USER: postgres
+  #    POSTGRES_PASSWORD: nYNRWDXqmrAPT8EASZH9
+  #    POSTGRES_DB: RecreatieVoetbalPWA
+  #  volumes:
+  #    - ./data/postgres:/var/lib/postgresql/data
+
+  dockertest:
+    image: dockertest
+    ports:
+    - "80:80"
+    environment:
+      VIRTUAL_HOST: konijn.it
+      LETSENCRYPT_HOST: konijn.it
+      LETSENCRYPT_EMAIL: foo@konijn.it
+
+volumes:
+  conf:
+  vhost:
+  html:
+  certs:
+
+# Do not forget to 'docker network create nginx-proxy' before launch, and to add '--network nginx-proxy' to proxied containers.
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
