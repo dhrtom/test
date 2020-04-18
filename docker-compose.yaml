@@ -28,18 +28,18 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - URL=yourdomain.url
+      - URL=konijn.it
       - SUBDOMAINS=www,
       - VALIDATION=http
       - DNSPLUGIN=cloudflare #optional
       - DUCKDNSTOKEN=<token> #optional
-      - EMAIL=<e-mail> #optional
+      - EMAIL=foo@konijn.it
       - DHLEVEL=2048 #optional
       - ONLY_SUBDOMAINS=false #optional
       - EXTRA_DOMAINS=<extradomains> #optional
       - STAGING=false #optional
     volumes:
-      - </path/to/appdata/config>:/config
+      - /var/letsencryptdata:/config
     ports:
       - 443:443
       - 80:80 #optional
