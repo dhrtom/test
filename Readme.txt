@@ -9,4 +9,5 @@ Certificaat:
 https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
 Eenmalig moet dit nog draaien om een certificaat aan te maken:
+chmod +x init-letsencrypt.sh
 sudo ./init-letsencrypt.sh
