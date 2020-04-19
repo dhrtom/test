@@ -13,15 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yaml = docker-compose.yaml
 		init-letsencrypt.sh = init-letsencrypt.sh
-		nginx.conf = nginx.conf
+		data\nginx\nginx.conf = data\nginx\nginx.conf
 		Readme.txt = Readme.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{C5CEDF7A-C846-4564-A2D6-A00B47F71443}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{D5EB4E13-F8ED-4488-BADD-7C9E2FDC1FD2}"
-	ProjectSection(SolutionItems) = preProject
-		nginx.conf = nginx.conf
 	EndProjectSection
 EndProject
 Global
@@ -45,10 +38,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C5CEDF7A-C846-4564-A2D6-A00B47F71443} = {EC0B8DF6-E7FE-4138-9DC7-387A5FA5A493}
-		{D5EB4E13-F8ED-4488-BADD-7C9E2FDC1FD2} = {C5CEDF7A-C846-4564-A2D6-A00B47F71443}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {399A97A0-F523-4C16-ACFE-D5C1F15667FE}
