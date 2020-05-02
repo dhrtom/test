@@ -341,3 +341,6 @@ healthchecksdb
 
 # Certbot data directory
 data/
+
+# Certbot data directory
+BlazorApp1/Client/wwwroot/js/generated/

@@ -1,7 +1,23 @@
-﻿@page "/"
+﻿@using AspNetMonsters.Blazor.Geolocation
+@inject LocationService  LocationService
+@page "/"
 
-<h1>Hello, world!</h1>
+<h3>You are here</h3>
+<div>
+Lat: @location?.Latitude <br/>
+Long: @location?.Longitude <br />
+Accuracy: @location?.Accuracy <br />
+</div>
 
-Welcome to your new app.
+@functions
+{
+    Location location;
+    private string _position = string.Empty;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        location = await LocationService.GetLocationAsync();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        await base.OnInitializedAsync();
+    }
+}
