@@ -1,23 +1,41 @@
-﻿@using AspNetMonsters.Blazor.Geolocation
-@inject LocationService  LocationService
+﻿@using BlazorApp1.Client;
+@inject LocationService LocationService
 @page "/"
 
 <h3>You are here</h3>
 <div>
-Lat: @location?.Latitude <br/>
-Long: @location?.Longitude <br />
-Accuracy: @location?.Accuracy <br />
+    Watched: @_position<br />
+    Lat: @location?.Latitude <br />
+    Long: @location?.Longitude <br />
+    Accuracy: @location?.Accuracy <br />
+    Altitude: @location?.Altitude <br />
+    AltitudeAccuracy: @location?.AltitudeAccuracy <br />
+    Heading: @location?.Heading <br />
 </div>
+<button class="btn btn-primary" @onclick="WatchLocationClick">Click me</button>
 
-@functions
-{
+@code {
+    private int currentCount = 0;
+
+    private async Task WatchLocationClick()
+    {
+        await LocationService.WatchLocation(WatchCallBack);
+    }
+
     Location location;
     private string _position = string.Empty;
-    
+
     protected override async Task OnInitializedAsync()
     {
         location = await LocationService.GetLocationAsync();
 
         await base.OnInitializedAsync();
+    }
+
+    private void WatchCallBack(Location watchLocation)
+    {
+        Console.WriteLine($"Check this position: {watchLocation.Latitude} {watchLocation.Longitude}");
+        _position = $"{watchLocation.Latitude} ,{watchLocation.Longitude}";
+        StateHasChanged();
     }
 }
