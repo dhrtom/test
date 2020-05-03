@@ -12,7 +12,7 @@ RUN dotnet restore "BlazorApp1/Server/BlazorApp1.Server.csproj"
 COPY . .
 WORKDIR "/src/BlazorApp1/Server"
 RUN apt-get update -yq && apt-get upgrade -yq && apt-get install -yq curl git nano
-RUN apt-get install nodejs
+RUN apt-get install nodejs -yq
 
 RUN dotnet build "BlazorApp1.Server.csproj" -c Release -o /app/build
 
