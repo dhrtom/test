@@ -15,8 +15,6 @@
 <button class="btn btn-primary" @onclick="WatchLocationClick">Click me</button>
 
 @code {
-    private int currentCount = 0;
-
     private async Task WatchLocationClick()
     {
         await LocationService.WatchLocation(WatchCallBack);
