@@ -339,8 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-# Certbot data directory
-data/
-
-# Certbot data directory
+# Generated TypeScript directory
 BlazorApp1/Client/wwwroot/js/generated/

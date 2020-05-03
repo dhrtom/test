@@ -12,6 +12,7 @@ Eenmalig moet dit nog draaien om een certificaat aan te maken:
 chmod +x init-letsencrypt.sh
 sudo ./init-letsencrypt.sh
 
+ngix.conf in data/nginx map plaatsen
 
 push:
 https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#displaying-notifications
