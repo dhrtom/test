@@ -15,7 +15,6 @@ namespace BlazorApp1.Client
 
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             
-            builder.Services.AddDevExpressBlazor();
             builder.Services.AddSingleton<LocationService>();
             await builder.Build().RunAsync();
         }
