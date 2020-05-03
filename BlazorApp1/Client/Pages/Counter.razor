@@ -19,14 +19,6 @@
     }
 }
 
-<DxButton RenderStyle="ButtonRenderStyle.Primary" Text="Disabled button" Click="@Like" />
-<DxButton RenderStyle="ButtonRenderStyle.Dark" Text="Undo" Title="Undo the last action." IconCssClass="undo" style="margin-right: 0.5em;" />
-<DxButton RenderStyle="ButtonRenderStyle.Dark" Text="Redo" Title="Restore the previously undone action." IconCssClass="redo" IconPosition="ButtonIconPosition.AfterText" />
-
-<DxDateEdit Date="DateTime.Today"></DxDateEdit>
-
-<DxDateEdit @bind-Date="@DateTimeValue"></DxDateEdit>
-
 @code {
     DateTime DateTimeValue = DateTime.Today;
 }
