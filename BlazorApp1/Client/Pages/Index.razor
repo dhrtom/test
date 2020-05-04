@@ -4,13 +4,20 @@
 
 <h3>You are here</h3>
 <div>
-    Watched: @_position<br />
     Lat: @location?.Latitude <br />
     Long: @location?.Longitude <br />
     Accuracy: @location?.Accuracy <br />
     Altitude: @location?.Altitude <br />
     AltitudeAccuracy: @location?.AltitudeAccuracy <br />
     Heading: @location?.Heading <br />
+</div>
+<div>
+    Lat: @watchLoacation?.Latitude <br />
+    Long: @watchLoacation?.Longitude <br />
+    Accuracy: @watchLoacation?.Accuracy <br />
+    Altitude: @watchLoacation?.Altitude <br />
+    AltitudeAccuracy: @watchLoacation?.AltitudeAccuracy <br />
+    Heading: @watchLoacation?.Heading <br />
 </div>
 <button class="btn btn-primary" @onclick="WatchLocationClick">Click me</button>
 
@@ -21,7 +28,7 @@
     }
 
     Location location;
-    private string _position = string.Empty;
+    Location watchLoacation;
 
     protected override async Task OnInitializedAsync()
     {
@@ -33,7 +40,7 @@
     private void WatchCallBack(Location watchLocation)
     {
         Console.WriteLine($"Check this position: {watchLocation.Latitude} {watchLocation.Longitude}");
-        _position = $"{watchLocation.Latitude} ,{watchLocation.Longitude}";
+        watchLoacation = watchLocation;
         StateHasChanged();
     }
 }
